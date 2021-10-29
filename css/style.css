@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1em; /*16px on most screens*/
+  background-image: radial-gradient(circle at top center, #bee1e6 10%, #dfe7fd 90%);
+}
+
+header {
+  background-image: url(../images/IMG_20210105_194935.jpg);
+  background-blend-mode: multiply;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+a:link,
+a:visited {
+  text-decoration: none; /* removes the ugly underline when indicating the hyperlink */
+  font-style: normal;
+  color: #774936;
+}
+
+a:hover,
+a:focus {
+  color: #c9184a;
+  text-shadow: -3px 3px 10px #e2ece9,
+               -3px 3px 10px #e2ece9,
+               -3px 3px 10px #e2ece9; /*iterate 3 times to embolden the effect. probably a better way to do this though*/
+}
+
+a:focus {
+  outline: 0;  /* had to add this outline declaration because it was doing something weird, like indicating a solid border, even though i had it dotted*/
+  border-style: dotted;
+}
+
+h1 {
+  letter-spacing: 0.05em;
+}
+h1 em {
+  letter-spacing: 0.25em;
+}
+h1, h1 em {
+  color: #3c096c;
+  font-size: 3rem;
+  font-family: 'Lobster Two', cursive, georgia, serif;
+  text-align: center;
+  text-shadow: 1px 2px 3px rgb(0,10,30,.5);
+}
+
+#aesthetic1 {
+  color: #bee1e6;
+  /* background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); */
+}
+
+#banner {
+  box-shadow: rgba(0, 0, 0, 0.075) 0px 4px 12px,
+              inset 0px 5px 3px 3px #eae4e9;
+  background: linear-gradient(to left, #f0efeb, #fad2e1, #f0efeb);
+  background-repeat: no-repeat;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch; /*stretch is the default setting, so removing this shouldn't make any difference*/
+  max-width: 750px;
+  min-height: 6vh;
+  border: solid teal 4px;
+  padding: 0;
+  margin: 2px auto;
+}
+
+nav ul li {
+  list-style-type: none; /* to remove bullet points */
+  font-family: 'Gluten', cursive;
+  font-size: 2rem;
+  text-shadow: -3px 3px 3px #f0efeb;
+  border: solid red 3px;
+  align-self: center;
+}
+
+#quote {
+  font-family: 'Parisienne', cursive;
+  color:#3c096c;
+  font-size: 2.0rem;
+  text-align: center;
+}
+#quote em {
+  font-size:1.25rem;
+  font-weight: bold;
+  color: #f391b5;
+}
+
+img {
+  width: 100%;
+  max-width: 1000px; /* the width and max-width will take the smaller of image actual size that can fit on screen or 600px.*/
+  height: auto;  /* height:auto is the default. Just declaring for clrity. If height is a value other than auto, the image may be out of proportion. */
+  border-radius: 10px; /* adds a curved edge to the pictures */
+  box-shadow: 2px 1px 3px 3px rgba(0, 0, 0, 0.25);
+  display: block; /* the display block declaration allows the image to be centered */
+  margin: 0px auto;
+}
+figure {
+  position: relative; /*without this declaration, the caption would be misaligned as the viewport changes */
+  z-index: 1;
+  width: 100%;
+  max-width: 1000px; /*the width declaration is necessary to align the captions inside the photo */
+  margin: 0 auto; /*this centers the photo in the middle */
+}
+figcaption {
+  position: absolute;
+  width: 45%;
+  top: 20px;
+  background-color: rgba(197, 207, 0, 0.3);
+  font-family: 'Gluten', cursive;
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #3c096c;
+}
+#about {
+  display:block;
+  width: 1000 px;
+  height: 1000 px;
+  background-image: url(../images/IMG_20210105_194935.jpg);
+  background-size: cover;
+  background-blend-mode: exclusion;
+}
+
+#paletteColor {
+  margin-top: 100vh;
+  margin-bottom: 3px;
+}
+@media screen and (min-width: 560px) {
+  nav ul {
+    flex-direction: row;
+  }
+}
+
+
+/*  template for heading
+h3 {
+ font-family: georgia,serif;
+ color: #755c44;
+ font-size: 20px;
+ letter-spacing: 0.1em;
+ line-height: 1.5em;
+ text-transform: uppercase;
+ margin: 10px;
+ }
+
+h3 em{
+ color:#8F7C47;
+ letter-spacing:0.05em;
+ text-transform:none;
+ font-size:20px;
+ } */
