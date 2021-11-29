@@ -8,15 +8,34 @@ html {
 }
 
 header {
-  background-image: url(../images/IMG_20210105_194935.jpg);
-  background-blend-mode: multiply;
+      /* background-image: url(../images/IMG_20210105_194935.jpg); */
+      /* background-blend-mode: multiply; */
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2px;
+  grid-template-areas: 
+    "head"
+    "quote"
+    "nav"
+    "main"
+    "footer";
 }
 
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+}
+
+
+#head {
+  grid-area: head;
+}
 a:link,
 a:visited {
   text-decoration: none; /* removes the ugly underline when indicating the hyperlink */
@@ -27,9 +46,7 @@ a:visited {
 a:hover,
 a:focus {
   color: #c9184a;
-  text-shadow: -3px 3px 10px #e2ece9,
-               -3px 3px 10px #e2ece9,
-               -3px 3px 10px #e2ece9; /*iterate 3 times to embolden the effect. probably a better way to do this though*/
+  text-shadow: 3px 3px 10px #0a3b2c; /*iterate 3 times to embolden the effect. probably a better way to do this though*/
 }
 
 a:focus {
@@ -58,20 +75,21 @@ h1, h1 em {
 }
 
 #banner {
-  box-shadow: rgba(0, 0, 0, 0.075) 0px 4px 12px,
-              inset 0px 5px 3px 3px #eae4e9;
+  box-shadow: rgba(0, 0, 0, 0.075) 0px 4px 12px;
+      /* inset 0px 5px 3px 3px #eae4e9; */
   background: linear-gradient(to left, #f0efeb, #fad2e1, #f0efeb);
   background-repeat: no-repeat;
 }
 
 nav ul {
+  grid-area: nav;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: stretch; /*stretch is the default setting, so removing this shouldn't make any difference*/
   max-width: 750px;
   min-height: 6vh;
-  border: solid teal 4px;
+  /* border: solid teal 4px; */
   padding: 0;
   margin: 2px auto;
 }
@@ -81,11 +99,12 @@ nav ul li {
   font-family: 'Gluten', cursive;
   font-size: 2rem;
   text-shadow: -3px 3px 3px #f0efeb;
-  border: solid red 3px;
+  /* border: solid red 3px; */
   align-self: center;
 }
 
 #quote {
+  grid-area: quote;
   font-family: 'Parisienne', cursive;
   color:#3c096c;
   font-size: 2.0rem;
@@ -100,19 +119,14 @@ nav ul li {
 img {
   width: 100%;
   max-width: 1000px; /* the width and max-width will take the smaller of image actual size that can fit on screen or 600px.*/
-  height: auto;  /* height:auto is the default. Just declaring for clrity. If height is a value other than auto, the image may be out of proportion. */
+  /*height: auto;*/  /* height:auto is the default. Just declaring for clrity. If height is a value other than auto, the image may be out of proportion. */
   border-radius: 10px; /* adds a curved edge to the pictures */
   box-shadow: 2px 1px 3px 3px rgba(0, 0, 0, 0.25);
-  display: block; /* the display block declaration allows the image to be centered */
-  margin: 0px auto;
+  /*display: block; /* the display block declaration allows the image to be centered */
+  /* margin: 0px auto; */
 }
-figure {
-  position: relative; /*without this declaration, the caption would be misaligned as the viewport changes */
-  z-index: 1;
-  width: 100%;
-  max-width: 1000px; /*the width declaration is necessary to align the captions inside the photo */
-  margin: 0 auto; /*this centers the photo in the middle */
-}
+
+
 figcaption {
   position: absolute;
   width: 45%;
@@ -125,8 +139,8 @@ figcaption {
 }
 #about {
   display:block;
-  width: 1000 px;
-  height: 1000 px;
+  width: 1000px;
+  height: 1000px;
   background-image: url(../images/IMG_20210105_194935.jpg);
   background-size: cover;
   background-blend-mode: exclusion;
