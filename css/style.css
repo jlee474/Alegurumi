@@ -18,7 +18,6 @@ body {
   gap: 2px;
   grid-template-areas: 
     "head"
-    "quote"
     "nav"
     "main"
     "footer";
@@ -26,6 +25,7 @@ body {
 
 main {
   grid-area: main;
+  margin: 5px auto;
 }
 
 footer {
@@ -33,7 +33,7 @@ footer {
 }
 
 
-#head {
+header {
   grid-area: head;
 }
 a:link,
@@ -51,7 +51,7 @@ a:focus {
 
 a:focus {
   outline: 0;  /* had to add this outline declaration because it was doing something weird, like indicating a solid border, even though i had it dotted*/
-  border-style: dotted;
+  border-style: dotte       d;
 }
 
 h1 {
@@ -75,17 +75,12 @@ h1, h1 em {
 }
 
 #banner {
-  box-shadow: rgba(0, 0, 0, 0.075) 0px 4px 12px;
-      /* inset 0px 5px 3px 3px #eae4e9; */
-  background: linear-gradient(to left, #f0efeb, #fad2e1, #f0efeb);
-  background-repeat: no-repeat;
+  grid-area: nav;
 }
 
 nav ul {
-  grid-area: nav;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: stretch; /*stretch is the default setting, so removing this shouldn't make any difference*/
   max-width: 750px;
   min-height: 6vh;
@@ -95,12 +90,18 @@ nav ul {
 }
 
 nav ul li {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.075) 0px 4px 12px;
+  /* inset 0px 5px 3px 3px #eae4e9; */
+  background: linear-gradient(to left, #f0efeb, #fad2e1, #f0efeb);
+  background-repeat: no-repeat;
   list-style-type: none; /* to remove bullet points */
   font-family: 'Gluten', cursive;
   font-size: 2rem;
   text-shadow: -3px 3px 3px #f0efeb;
   /* border: solid red 3px; */
-  align-self: center;
+  text-align: center;
+  margin: 2px auto;  
 }
 
 #quote {
@@ -146,13 +147,11 @@ figcaption {
   background-blend-mode: exclusion;
 }
 
-#paletteColor {
-  margin-top: 100vh;
-  margin-bottom: 3px;
-}
 @media screen and (min-width: 560px) {
   nav ul {
     flex-direction: row;
+    margin: 2px 0px;
+    flex: 100%;
   }
 }
 
