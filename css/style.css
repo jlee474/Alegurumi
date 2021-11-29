@@ -2,25 +2,18 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 1em; /*16px on most screens*/
-  background-image: radial-gradient(circle at top center, #bee1e6 10%, #dfe7fd 90%);
-}
-
-header {
-      /* background-image: url(../images/IMG_20210105_194935.jpg); */
-      /* background-blend-mode: multiply; */
-}
-
 body {
+  min-height: 100vh;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-rows: auto-fit; */
+  grid-auto-rows: minmax(50px, auto);
   gap: 2px;
   grid-template-areas: 
-    "head"
-    "nav"
-    "main"
-    "footer";
+    "head head head head"
+    "nav nav nav nav"
+    "main main main main"
+    "... footer footer footer";
 }
 
 main {
@@ -28,80 +21,46 @@ main {
   margin: 5px auto;
 }
 
-footer {
-  grid-area: footer;
+html {
+  font-size: 1em; /*16px on most screens*/
+  background-image: radial-gradient(circle at top center, #bee1e6 10%, #dfe7fd 90%);
 }
 
-
-header {
-  grid-area: head;
-}
-a:link,
-a:visited {
-  text-decoration: none; /* removes the ugly underline when indicating the hyperlink */
-  font-style: normal;
-  color: #774936;
-}
-
-a:hover,
-a:focus {
-  color: #c9184a;
-  text-shadow: 3px 3px 10px #0a3b2c; /*iterate 3 times to embolden the effect. probably a better way to do this though*/
-}
-
-a:focus {
-  outline: 0;  /* had to add this outline declaration because it was doing something weird, like indicating a solid border, even though i had it dotted*/
-  border-style: dotte       d;
-}
-
-h1 {
-  letter-spacing: 0.05em;
-}
-h1 em {
-  letter-spacing: 0.25em;
-}
-h1, h1 em {
-  color: #3c096c;
-  font-size: 3rem;
-  font-family: 'Lobster Two', cursive, georgia, serif;
-  text-align: center;
-  text-shadow: 1px 2px 3px rgb(0,10,30,.5);
-}
-
-#aesthetic1 {
-  color: #bee1e6;
-  /* background: rgb(238,174,202);
-  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); */
-}
-
-#banner {
+nav {
   grid-area: nav;
+  max-height: 10vh;
 }
 
 nav ul {
   display: flex;
   flex-direction: column;
-  align-items: stretch; /*stretch is the default setting, so removing this shouldn't make any difference*/
-  max-width: 750px;
-  min-height: 6vh;
+  align-items: center; /*stretch is the default setting, so removing this shouldn't make any difference*/
+  /* max-width: 750px; */
+  /* min-height: 6vh; */
   /* border: solid teal 4px; */
-  padding: 0;
+  padding: 0px;
+  max-width: 1200px;
   margin: 2px auto;
 }
 
-nav ul li {
+nav ul div {
   width: 100%;
+  justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.075) 0px 4px 12px;
   /* inset 0px 5px 3px 3px #eae4e9; */
   background: linear-gradient(to left, #f0efeb, #fad2e1, #f0efeb);
   background-repeat: no-repeat;
+  margin: 2px auto;  
+}
+
+nav ul li {
+  max-width: 800px;
   list-style-type: none; /* to remove bullet points */
   font-family: 'Gluten', cursive;
   font-size: 2rem;
   text-shadow: -3px 3px 3px #f0efeb;
   /* border: solid red 3px; */
   text-align: center;
-  margin: 2px auto;  
 }
 
 #quote {
@@ -147,14 +106,80 @@ figcaption {
   background-blend-mode: exclusion;
 }
 
+
+
+footer {
+  grid-area: footer;
+}
+
+ul {
+  padding: 0;
+}
+
+header {
+  grid-area: head;
+}
+
+
+a:link,
+a:visited {
+  text-decoration: none; /* removes the ugly underline when indicating the hyperlink */
+  font-style: normal;
+  color: #774936;
+}
+
+a:hover,
+a:focus {
+  color: #c9184a;
+  text-shadow: 3px 3px 10px #0a3b2c; /*iterate 3 times to embolden the effect. probably a better way to do this though*/
+}
+
+a:focus {
+  outline: 0;  /* had to add this outline declaration because it was doing something weird, like indicating a solid border, even though i had it dotted*/
+  border-style: dotte       d;
+}
+
+h1 {
+  letter-spacing: 0.05em;
+}
+h1 em {
+  letter-spacing: 0.25em;
+}
+h1, h1 em {
+  color: #3c096c;
+  font-size: 3rem;
+  font-family: 'Lobster Two', cursive, georgia, serif;
+  text-align: center;
+  text-shadow: 1px 2px 3px rgb(0,10,30,.5);
+}
+
 @media screen and (min-width: 560px) {
+
+  nav {
+    display: flex; /*this is to align the content centered vertically, it won't matter with the narrow width*/
+    box-shadow: rgba(0, 0, 0, 0.075) 0px 4px 12px;
+    /* inset 0px 5px 3px 3px #eae4e9; */
+    background: linear-gradient(to left, #f0efeb, #fad2e1, #f0efeb);
+    background-repeat: no-repeat;
+  }
+  
   nav ul {
     flex-direction: row;
-    margin: 2px 0px;
     flex: 100%;
+    padding: 0;
+  }
+  
+  nav ul div {
+    box-shadow: none;
+    background: none;
+    background-repeat: none;
   }
 }
 
+/*header {
+      /* background-image: url(../images/IMG_20210105_194935.jpg); */
+      /* background-blend-mode: multiply; 
+}*/
 
 /*  template for heading
 h3 {
@@ -173,3 +198,9 @@ h3 em{
  text-transform:none;
  font-size:20px;
  } */
+
+ /*#aesthetic1 {
+  color: #bee1e6;
+  /* background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); 
+}*/
