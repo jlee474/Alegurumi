@@ -16,6 +16,9 @@ body {
     "... footer footer footer";
 }
 
+header {
+  max-height: 25vh;
+}
 main {
   grid-area: main;
   margin: 5px auto;
@@ -28,19 +31,19 @@ html {
 
 nav {
   grid-area: nav;
-  max-height: 10vh;
+  display: flex;
 }
 
 nav ul {
+  flex-grow: 1; /*caution! this flex-grow is the flex-item property relative to the parent container, and not to be confused with itself being a flex container. In other words, 'nav ul' is a flex item with respect to 'nav', and a flex container with respect to 'nav ul div'*/
   display: flex;
   flex-direction: column;
-  align-items: center; /*stretch is the default setting, so removing this shouldn't make any difference*/
+  align-items: stretch; /*stretch is the default setting, so removing this shouldn't make any difference*/
   /* max-width: 750px; */
   /* min-height: 6vh; */
-  /* border: solid teal 4px; */
   padding: 0px;
   max-width: 1200px;
-  margin: 2px auto;
+  margin: auto; /*centers vertically and horizontally, possible with flex */
 }
 
 nav ul div {
@@ -63,22 +66,29 @@ nav ul li {
   text-align: center;
 }
 
-#quote {
-  grid-area: quote;
+#quote, #quote2 {
   font-family: 'Parisienne', cursive;
   color:#3c096c;
   font-size: 2.0rem;
   text-align: center;
 }
-#quote em {
+#quote em, #quote2 em {
   font-size:1.25rem;
   font-weight: bold;
   color: #f391b5;
 }
 
+#quote {
+  display: none;
+}
+#quote2 {
+  display: inherit;
+}
+
+
 img {
   width: 100%;
-  max-width: 1000px; /* the width and max-width will take the smaller of image actual size that can fit on screen or 600px.*/
+  max-width: 500px; /* the width and max-width will take the smaller of image actual size that can fit on screen or 600px.*/
   /*height: auto;*/  /* height:auto is the default. Just declaring for clrity. If height is a value other than auto, the image may be out of proportion. */
   border-radius: 10px; /* adds a curved edge to the pictures */
   box-shadow: 2px 1px 3px 3px rgba(0, 0, 0, 0.25);
@@ -110,6 +120,10 @@ figcaption {
 
 footer {
   grid-area: footer;
+  display: flex;
+  flex-direction: row;
+  margin-top: auto;
+  margin-bottom: 5px;
 }
 
 ul {
@@ -153,14 +167,23 @@ h1, h1 em {
   text-shadow: 1px 2px 3px rgb(0,10,30,.5);
 }
 
+
+/** 
+** MEDIA QUERIES 
+**/
+
 @media screen and (min-width: 560px) {
 
+  header {
+    max-height: inherit;
+  }
   nav {
     display: flex; /*this is to align the content centered vertically, it won't matter with the narrow width*/
     box-shadow: rgba(0, 0, 0, 0.075) 0px 4px 12px;
     /* inset 0px 5px 3px 3px #eae4e9; */
     background: linear-gradient(to left, #f0efeb, #fad2e1, #f0efeb);
     background-repeat: no-repeat;
+    max-height: 80px;
   }
   
   nav ul {
@@ -173,6 +196,13 @@ h1, h1 em {
     box-shadow: none;
     background: none;
     background-repeat: none;
+  }
+
+  #quote {
+    display: inherit;
+  }
+  #quote2 {
+    display: none;
   }
 }
 
