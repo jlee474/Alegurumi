@@ -17,7 +17,7 @@ body {
 }
 
 header {
-  max-height: 25vh;
+  /* max-height: 25vh; */
 }
 main {
   grid-area: main;
